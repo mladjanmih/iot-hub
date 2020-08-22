@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+
+
+  
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\hub.proto" GrpcServices="Both" />
+    <Protobuf Include="Protos\sensor.proto" GrpcServices="Both" />
+  </ItemGroup>
+</Project>

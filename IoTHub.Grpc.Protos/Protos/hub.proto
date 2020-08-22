@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "IoTHub.Grpc.Protos";
+
+package hub;
+
+service Hub {
+	rpc RegisterSensor(SensorRegisterRequest) returns (RegisterResponse);
+	
+	rpc RegisterSensorHost(HostRegisterRequest) returns (RegisterResponse);
+}
+
+message SensorRegisterRequest {
+	string name = 1;
+	string unitName = 2;
+	int32 hostSensorId = 3;
+	int32 hostId = 4;
+}
+
+message HostRegisterRequest {
+	string name = 1;
+}
+
+message RegisterResponse {
+	int32 id = 1;
+	bool success = 2;
+	string error = 3;
+}

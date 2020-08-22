@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "IoTHub.Grpc.Protos";
+
+package sensor;
+
+service Sensor {
+	rpc Readiness(HealthCheckRequest) returns (HealthCheckResponse);
+	rpc Liveness(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+message HealthCheckRequest {
+	int32 sensorId = 1;
+}
+
+message HealthCheckResponse {
+	bool alive = 1;
+}
