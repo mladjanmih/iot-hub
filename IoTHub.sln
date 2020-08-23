@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTHub.Persistence.Sqlite",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IoTHub.Persistence", "src\IoTHub.Persistence\IoTHub.Persistence.csproj", "{299F57B1-5281-4496-ADBC-6BDBABBAE9E8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{B27D7D93-BE07-4E79-B32D-0F3431629D62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoTHub.Core", "IoTHub.Core\IoTHub.Core.csproj", "{35FD6BAB-BC5B-4AC1-9893-11A29B2D3F26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,10 @@ Global
 		{299F57B1-5281-4496-ADBC-6BDBABBAE9E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{299F57B1-5281-4496-ADBC-6BDBABBAE9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{299F57B1-5281-4496-ADBC-6BDBABBAE9E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35FD6BAB-BC5B-4AC1-9893-11A29B2D3F26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35FD6BAB-BC5B-4AC1-9893-11A29B2D3F26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35FD6BAB-BC5B-4AC1-9893-11A29B2D3F26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35FD6BAB-BC5B-4AC1-9893-11A29B2D3F26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +74,7 @@ Global
 		{BFF14B03-DECB-4CB9-BFC3-F1A4879E393D} = {8EF2CD78-DAC9-467B-9499-84F1B1183C96}
 		{A6DD43BB-2218-4E1F-A1FD-2E9273C039C1} = {8EF2CD78-DAC9-467B-9499-84F1B1183C96}
 		{299F57B1-5281-4496-ADBC-6BDBABBAE9E8} = {8EF2CD78-DAC9-467B-9499-84F1B1183C96}
+		{35FD6BAB-BC5B-4AC1-9893-11A29B2D3F26} = {B27D7D93-BE07-4E79-B32D-0F3431629D62}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {08AFD222-2CC0-4517-B407-0F54602856B0}

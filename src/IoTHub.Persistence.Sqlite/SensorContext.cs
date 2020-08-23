@@ -22,6 +22,8 @@ namespace IoTHub.Persistence.Sqlite
 
         public DbSet<SensorHost> SensorHost { get; set; }
 
+        public DbSet<Measurement> Measurement { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlite("Data source=iothub.db");

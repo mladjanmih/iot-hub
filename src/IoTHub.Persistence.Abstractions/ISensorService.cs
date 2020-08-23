@@ -11,5 +11,7 @@ namespace IoTHub.Persistence.Abstractions
         Task<int?> RegisterSensorAsync(SensorRegisterRequest request);
 
         Task<int> RegisterSensorHostAsync(HostRegisterRequest request);
+
+        Task<bool> SaveMeasurementData(PublishSensorDataRequest request);
     }
 }

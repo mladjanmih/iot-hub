@@ -9,6 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\IoTHub.Core\IoTHub.Core.csproj" />
     <ProjectReference Include="..\IoTHub.Persistence.Abstractions\IoTHub.Persistence.Abstractions.csproj" />
     <ProjectReference Include="..\IoTHub.Persistence.Sqlite\IoTHub.Persistence.Sqlite.csproj" />
   </ItemGroup>

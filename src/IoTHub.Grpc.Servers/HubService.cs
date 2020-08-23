@@ -1,10 +1,13 @@
 ﻿using Grpc.Core;
 using IoTHub.Grpc.Protos;
 using IoTHub.Persistence.Abstractions;
+using System;
 using System.Threading.Tasks;
+
 
 namespace IoTHub.Services
 {
+
     public class HubService : IoTHub.Grpc.Protos.Hub.HubBase
     {
         private readonly ISensorService _sensorService;
@@ -39,6 +42,16 @@ namespace IoTHub.Services
                 Id = id
             };
             
+        }
+
+        public override Task<PublishResponse> PublishSensorData(PublishSensorDataRequest request, ServerCallContext context)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Task<PublishResponse> PublishSensorDataBulk(IAsyncStreamReader<PublishSensorDataRequest> requestStream, ServerCallContext context)
+        {
+            throw new NotImplementedException();
         }
     }
 }

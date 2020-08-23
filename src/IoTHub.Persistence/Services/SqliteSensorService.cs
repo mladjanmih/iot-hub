@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using IoTHub.Core;
 using IoTHub.Grpc.Protos;
 using IoTHub.Persistence.Abstractions;
 using IoTHub.Persistence.MapperProfiles;
@@ -56,6 +57,47 @@ namespace IoTHub.Persistence.Services
             _context.SensorHost.Add(host);
             _context.SaveChanges();
             return Task.FromResult(host.Id);
-        }    
+        }
+
+        public Task<bool> SaveMeasurementData(PublishSensorDataRequest request)
+        {
+            var sensor = _context.Sensor.FirstOrDefault(x => x.HostId == request.HostId && x.HostSensorId == request.SensorId);
+            if (sensor == null)
+            {
+                return Task.FromResult(false);
+            }
+            var measurement = new Measurement()
+            {
+                Sensor = sensor
+            };
+
+            if (request.Timestamp > 0)
+            {
+                measurement.MeasurementTime = request.Timestamp.FromUnixTimestamp();
+            }
+            else
+            {
+                measurement.MeasurementTime = DateTime.Now;
+            }
+
+            switch (request.DataCase)
+            {
+                case PublishSensorDataRequest.DataOneofCase.DoubleData:
+                    measurement.Data = request.DoubleData;
+                    measurement.DataType = DataType.Double;
+                    break;
+                case PublishSensorDataRequest.DataOneofCase.IntData:
+                    measurement.Data = request.IntData;
+                    measurement.DataType = DataType.Integer;
+                    break;
+                default:
+                    throw new Exception("Unknown measurement data type");
+            }
+
+
+            _context.Measurement.Add(measurement);
+            _context.SaveChanges();
+            return Task.FromResult(true);
+        }
     }
 }

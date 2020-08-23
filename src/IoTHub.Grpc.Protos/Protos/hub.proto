@@ -8,6 +8,10 @@ service Hub {
 	rpc RegisterSensor(SensorRegisterRequest) returns (RegisterResponse);
 	
 	rpc RegisterSensorHost(HostRegisterRequest) returns (RegisterResponse);
+
+	rpc PublishSensorData(PublishSensorDataRequest) returns (PublishResponse);
+
+	rpc PublishSensorDataBulk(stream PublishSensorDataRequest) returns (PublishResponse);
 }
 
 message SensorRegisterRequest {
@@ -26,4 +30,19 @@ message RegisterResponse {
 	int32 id = 1;
 	bool success = 2;
 	string error = 3;
+}
+
+message PublishSensorDataRequest {
+	int32 hostId = 1;
+	int32 sensorId = 2;
+	oneof data {
+		int64 intData = 3;
+		double doubleData = 4;
+	}
+
+	int64 timestamp = 5;
+}
+
+message PublishResponse {
+	int32 messagesAccepted = 1;
 }
