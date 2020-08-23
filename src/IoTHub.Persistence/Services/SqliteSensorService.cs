@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Sensor = IoTHub.Persistence.Models.Sensor;
 
 namespace IoTHub.Persistence.Services
@@ -23,40 +23,39 @@ namespace IoTHub.Persistence.Services
             _mapper = new MapperConfiguration(cfg => cfg.AddProfile(new SensorProfile())).CreateMapper();
         }
 
-        public int? RegisterSensor(SensorRegisterRequest request)
+        public Task<int?> RegisterSensorAsync(SensorRegisterRequest request)
         {
-            var host = _context.SensorHosts.FirstOrDefault(x => x.Id == request.HostId);
+            var host = _context.SensorHost.FirstOrDefault(x => x.Id == request.HostId);
             if (host == null)
             {
                 return null;
             }
 
-            var sensor = _context.Sensors.FirstOrDefault(x => x.HostSensorId == request.HostSensorId);
+            var sensor = _context.Sensor.FirstOrDefault(x => x.HostSensorId == request.HostSensorId);
             if (sensor != null)
             {
-                return sensor.Id;
+                return Task.FromResult<int?>(sensor.Id);
             }
 
             sensor = _mapper.Map<Sensor>(request);
             sensor.Host = host;
-            _context.Sensors.Add(sensor);
+            _context.Sensor.Add(sensor);
             _context.SaveChanges();
-            return sensor.Id;
+            return Task.FromResult<int?>(sensor.Id);
         }
 
-        public int RegisterSensorHost(HostRegisterRequest request, string mac)
+        public Task<int> RegisterSensorHostAsync(HostRegisterRequest request)
         {
-            var host = _context.SensorHosts.FirstOrDefault(x => x.Mac == mac);
+            var host = _context.SensorHost.FirstOrDefault(x => x.NetworkId == request.NetworkId);
             if (host != null)
             {
-                return host.Id;
+                return Task.FromResult(host.Id);
             }
 
             host = _mapper.Map<SensorHost>(request);
-            host.Mac = mac;
-            _context.SensorHosts.Add(host);
+            _context.SensorHost.Add(host);
             _context.SaveChanges();
-            return host.Id;
+            return Task.FromResult(host.Id);
         }    
     }
 }

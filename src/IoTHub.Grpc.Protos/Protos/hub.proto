@@ -19,6 +19,7 @@ message SensorRegisterRequest {
 
 message HostRegisterRequest {
 	string name = 1;
+	string networkId = 2;
 }
 
 message RegisterResponse {

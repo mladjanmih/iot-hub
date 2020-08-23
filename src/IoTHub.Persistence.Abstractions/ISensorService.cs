@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace IoTHub.Persistence.Abstractions
 {
     public interface ISensorService
     {
-        int? RegisterSensor(SensorRegisterRequest request);
+        Task<int?> RegisterSensorAsync(SensorRegisterRequest request);
 
-        int RegisterSensorHost(HostRegisterRequest request, string mac);
+        Task<int> RegisterSensorHostAsync(HostRegisterRequest request);
     }
 }

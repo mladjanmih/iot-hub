@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IoTHub.Grpc.Servers\IoTHub.Grpc.Servers.csproj" />
+    <ProjectReference Include="..\IoTHub.Grpc.Protos\IoTHub.Grpc.Protos.csproj" />
+    <ProjectReference Include="..\IoTHub.Persistence.Abstractions\IoTHub.Persistence.Abstractions.csproj" />
   </ItemGroup>
-
 </Project>

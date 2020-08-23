@@ -2,11 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>IoTHub.Grpc.Protos</PackageId>
+    <Version>0.1.1</Version>
+    <Authors>Mladjan Mihajlovic</Authors>
+    <Company>Mladjan Mihajlovic</Company>
+    <Description>
+      Base models and services for IoT hub build using gRPC and proto3.
+    </Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
-
-
-
-
   
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IoTHub.Persistence.Abstractions;
+using IoTHub.Persistence.Services;
+using IoTHub.Persistence.Sqlite;
 using IoTHub.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,6 +21,8 @@ namespace IoTHub
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddGrpc();
+            services.AddTransient<SensorContext>();
+            services.AddTransient<ISensorService, SqliteSensorService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

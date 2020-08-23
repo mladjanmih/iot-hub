@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IoTHub.Grpc.Servers\IoTHub.Grpc.Servers.csproj" />
+    <ProjectReference Include="..\IoTHub.Persistence.Sqlite\IoTHub.Persistence.Sqlite.csproj" />
+    <ProjectReference Include="..\IoTHub.Persistence\IoTHub.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

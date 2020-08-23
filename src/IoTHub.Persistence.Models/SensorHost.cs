@@ -12,7 +12,7 @@ namespace IoTHub.Persistence.Models
         [BsonId]
         public int Id { get; set; }
 
-        public string Mac { get; set; }
+        public string NetworkId { get; set; }
 
         public string Name { get; set; }
 

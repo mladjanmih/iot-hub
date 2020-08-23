@@ -8,9 +8,19 @@ namespace IoTHub.Persistence.Sqlite
 {
     public class SensorContext: DbContext
     {
-        public DbSet<Sensor> Sensors { get; set; }
+        public SensorContext(): base()
+        {
+            Database.EnsureCreated();
+        }
 
-        public DbSet<SensorHost> SensorHosts { get; set; }
+        public SensorContext(DbContextOptions options) :base(options)
+        {
+            Database.EnsureCreated();
+        }
+
+        public DbSet<Sensor> Sensor { get; set; }
+
+        public DbSet<SensorHost> SensorHost { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
